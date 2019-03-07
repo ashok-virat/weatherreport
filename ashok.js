@@ -2,7 +2,6 @@ $(document).ready(()=>{
 let api="aa84ceefa0c4a115d4e54d06ebe74ed2";
 let units="imperial";
 let searchmethod;
-let URL="http://api.openweathermap.org/data/2.5/weather?"
 
 function getsearchmethod(searchterm) {
       if(searchterm.length ===5 && parseInt(searchterm)+""===searchterm) {
@@ -16,7 +15,7 @@ function getsearchmethod(searchterm) {
 
 function searchweather(searchterm) {
          getsearchmethod(searchterm)
-	$.getJSON(`${URL}${searchmethod}=${searchterm}&APPID=${api}&units=${units}`,function(data) {
+	$.getJSON(`http://api.openweathermap.org/data/2.5/weather?${searchmethod}=${searchterm}&APPID=${api}&units=${units}`,function(data) {
 
 		init(data)
 	})
