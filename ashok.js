@@ -13,14 +13,16 @@ function getsearchmethod(searchterm) {
       }
 }
 
+
 function searchweather(searchterm) {
-         getsearchmethod(searchterm)
-	$.getJSON(`http://api.openweathermap.org/data/2.5/weather?${searchmethod}=${searchterm}&APPID=${api}&units=${units}`,function(data) {
+     getsearchmethod(searchterm)
+	fetch(`http://api.openweathermap.org/data/2.5/weather?${searchmethod}=${searchterm}&APPID=${api}&units=${units}`).then(result=>{
+		return result.json();
+	}).then(result=>{
 
-		init(data)
+		init(result)
 	})
-
-	}
+}
 function init(searchfromserver) {
 	switch (searchfromserver.weather[0].main){
 
