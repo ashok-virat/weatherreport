@@ -8,7 +8,7 @@ function getsearchmethod(searchterm) {
 
       	searchmethod="zip"
       }
-      else { 
+      else{  
       	searchmethod="q"
       }
 }
